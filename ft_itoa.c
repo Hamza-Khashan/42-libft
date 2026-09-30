@@ -19,11 +19,9 @@ char	*ft_itoa(int n)
 {
 	char *str;
 	int len;
-	int temp;
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	temp = n;
 	len = ft_count_digits(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
