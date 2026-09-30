@@ -6,7 +6,7 @@
 /*   By: hkhashan <hkhashan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 12:04:14 by hkhashan          #+#    #+#             */
-/*   Updated: 2026/09/30 12:41:01 by hkhashan         ###   ########.fr       */
+/*   Updated: 2026/09/30 17:17:16 by hkhashan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdio.h>
 # include <stdlib.h> // for the function calloc is it allowed
 # include <unistd.h> // for write function
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -51,5 +57,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+t_list  *ft_lstnew(void *content);
+void ft_lstadd_front(t_list **lst, t_list *new);
+unsigned int ft_lstsize(t_list *lst);
 
 #endif
