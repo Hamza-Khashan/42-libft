@@ -6,7 +6,7 @@
 /*   By: hkhashan <hkhashan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 12:02:03 by hkhashan          #+#    #+#             */
-/*   Updated: 2026/09/30 12:36:28 by hkhashan         ###   ########.fr       */
+/*   Updated: 2026/10/02 13:50:36 by hkhashan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*arr;
 
 	max = (size_t)-1;
-	if (size > max / nmemb)
+	if (nmemb != 0 && size > max / nmemb)
 		return (NULL);
 	bytes = nmemb * size;
 	arr = malloc(bytes);

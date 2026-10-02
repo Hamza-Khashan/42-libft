@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkhashan <hkhashan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 17:16:49 by hkhashan          #+#    #+#             */
-/*   Updated: 2026/10/01 21:25:15 by hkhashan         ###   ########.fr       */
+/*   Created: 2026/10/01 21:39:49 by hkhashan          #+#    #+#             */
+/*   Updated: 2026/10/01 22:03:14 by hkhashan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_lstsize(t_list *lst)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	count;
+	t_list	*new_list;
+	t_list	*new_node;
+	void	*content;
 
-	count = 0;
-	while (lst != NULL)
+	if (!lst || !f || !del)
+		return (NULL);
+	new_list = NULL;
+	while (lst)
 	{
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
+		if (!new_node)
+		{
+			del(content);
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
 		lst = lst->next;
-		count++;
 	}
-	return (count);
+	return (new_list);
 }
