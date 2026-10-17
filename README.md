@@ -30,20 +30,24 @@ To compile the library:
 
 ```bash
 make
+```
 
 This compiles the source files into object files and creates the static library:    libft.a
 
 To remove the generated object files:
 ```bash
 make clean
+```
 
 To remove the object files and the static library:
 ```bash
 make fclean
+```
 
 To rebuild the library from scratch:
 ```bash
 make re
+```
 
 ### Using the library
 
@@ -51,10 +55,12 @@ Include the project header in your C source file:
 
 ```c
 #include "libft.h"
+```
 
 Then compile your program together with the library. For example:
 ```bash
 cc main.c libft.a -o program
+```
 
 ## Library Contents
 
